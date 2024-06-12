@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block content %}
+<div class="p-5 col-lg-4">
+    <h2>{{object.description}}</h2>
+    <hr>
+    <p><strong>Quantity: </strong>{{object.quantity}}</p>
+    <p><strong>Condition: </strong>{{object.condition}} - {{object.condition1}}
+    </p>
+    <p><strong>Location: </strong>{{object.location}}</p>
+    <p><strong>Remarks: </strong>{{object.remarks}}</p>
+    <p><strong>Updated: </strong>{{object.updated_at|naturaltime}}</p>
+    <hr>
+    <div class="text-end">
+        <a class="btn btn-danger" href="{% url 'update' object.pk %}">Edit</a>
+    </div>
+</div>
+{% endblock content %}
