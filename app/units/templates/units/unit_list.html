@@ -9,23 +9,26 @@
     <div class="col-lg-5 mx-auto my-5">
         <form action="{% url 'list' %}"
             method="get">
-            <input class="form-control form-control-sm rounded-pill"
+            <input class="form-control form-control-lg rounded-pill"
+                id="search1"
                 type="text"
                 name="q"
                 placeholder="Search Description, Location and Remarks"
                 value="{{ request.GET.q }}">
+                
+                <a class="float-end text-muted text-decoration-none me-2" href="/">clear</a>
         </form>
     </div>
     <h1 class="text-center">DIPT's Material Lab Inventory</h1>
     <hr>
     <div class="row">
-        <div class="col-lg-3 p-4 border border-dark rounded-4">
+        <div class="col-lg-3 p-4 border border-danger rounded-4">
             <form action="{% url 'create' %}"
                 method="post">
                 {% csrf_token %}
                 {{form|crispy}}
                 <div class="text-end">
-                    <button class="btn btn-sm btn-danger"
+                    <button class="btn btn-danger px-5 rounded-pill"
                         type="submit">Submit</button>
                 </div>
             </form>
@@ -66,4 +69,10 @@
         </div>
     </div>
 </div>
+<script>
+    $("#id_location").select2();
+    $("#id_condition").select2();
+    $("#id_condition1").select2();
+    $("#id_search1").select2();
+</script>
 {% endblock content %}

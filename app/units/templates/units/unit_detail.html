@@ -3,18 +3,18 @@
 {% load humanize %}
 
 {% block content %}
-<div class="p-5 col-lg-4">
+<div class="p-5 col-lg-4 border border-danger rounded-4 m-5">
     <h2>{{object.description}}</h2>
-    <hr>
+    <hr class="text-danger">
     <p><strong>Quantity: </strong>{{object.quantity}}</p>
     <p><strong>Condition: </strong>{{object.condition}} - {{object.condition1}}
     </p>
     <p><strong>Location: </strong>{{object.location}}</p>
     <p><strong>Remarks: </strong>{{object.remarks}}</p>
     <p><strong>Updated: </strong>{{object.updated_at|naturaltime}}</p>
-    <hr>
+    <hr class="text-danger">
     <div class="text-end">
-        <a class="btn btn-danger" href="{% url 'update' object.pk %}">Edit</a>
+        <a class="btn btn-danger px-5 rounded-pill" href="{% url 'update' object.pk %}">Edit</a>
     </div>
 </div>
 {% endblock content %}
